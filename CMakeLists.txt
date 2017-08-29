@@ -36,6 +36,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/dependency)
 
 find_package(PkgConfig REQUIRED)
 # set PKG_CONFIG_PATH value is a bug of cmake, and it was fixed in 3df5147043d83aa09acd5c9ce31d5c602efb99db
@@ -66,7 +67,7 @@ add_subdirectory(src)
 # Test
 ######################################################################
 if(BUILD_TESTS)
-  find_package(catch REQUIRED)
+  set(catch_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/dependency/catch")
   include_directories(${catch_INCLUDE_DIR})
   enable_testing()
   add_subdirectory("${CMAKE_SOURCE_DIR}/test/unit")
