@@ -33,3 +33,8 @@
 
 # Build Directory
 build/*
+
+# IDE
+# Kdevelop Files
+.kdev4/*
+*.kdev4
